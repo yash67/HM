@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="HM_Booking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoomId" Type="Int32" Nullable="false" />
+    <Property Name="BookingDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="HM_Room" Relationship="HMModel.FK_HM_Booking_HM_Room" FromRole="HM_Booking" ToRole="HM_Room" />
+  </EntityType>
+  <EntityType Name="HM_Hotel">
+    <Key>
+      <PropertyRef Name="HotelId" />
+    </Key>
+    <Property Name="HotelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HotelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pincode" Type="Int32" Nullable="false" />
+    <Property Name="ContactNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HM_Room" Relationship="HMModel.FK_HM_Room_HM_Hotel" FromRole="HM_Hotel" ToRole="HM_Room" />
+  </EntityType>
+  <EntityType Name="HM_RoomCategoryMaster">
+    <Key>
+      <PropertyRef Name="RoomCategoryId" />
+    </Key>
+    <Property Name="RoomCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoomCategoryType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="HM_Room" Relationship="HMModel.FK_HM_Room_HM_RoomCategoryMaster" FromRole="HM_RoomCategoryMaster" ToRole="HM_Room" />
+  </EntityType>
+  <EntityContainer Name="HMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="HM_Booking" EntityType="Self.HM_Booking" />
+    <EntitySet Name="HM_Hotel" EntityType="Self.HM_Hotel" />
+    <EntitySet Name="HM_RoomCategoryMaster" EntityType="Self.HM_RoomCategoryMaster" />
+    <EntitySet Name="HM_Room" EntityType="HMModel.HM_Room" />
+    <AssociationSet Name="FK_HM_Booking_HM_Room" Association="HMModel.FK_HM_Booking_HM_Room">
+      <End Role="HM_Room" EntitySet="HM_Room" />
+      <End Role="HM_Booking" EntitySet="HM_Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HM_Room_HM_Hotel" Association="HMModel.FK_HM_Room_HM_Hotel">
+      <End Role="HM_Hotel" EntitySet="HM_Hotel" />
+      <End Role="HM_Room" EntitySet="HM_Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HM_Room_HM_RoomCategoryMaster" Association="HMModel.FK_HM_Room_HM_RoomCategoryMaster">
+      <End Role="HM_RoomCategoryMaster" EntitySet="HM_RoomCategoryMaster" />
+      <End Role="HM_Room" EntitySet="HM_Room" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="HM_Room">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HotelId" Type="Int32" Nullable="false" />
+    <Property Name="RoomName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoomCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="RoomPrice" Type="Double" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HM_Booking" Relationship="HMModel.FK_HM_Booking_HM_Room" FromRole="HM_Room" ToRole="HM_Booking" />
+    <NavigationProperty Name="HM_Hotel" Relationship="HMModel.FK_HM_Room_HM_Hotel" FromRole="HM_Room" ToRole="HM_Hotel" />
+    <NavigationProperty Name="HM_RoomCategoryMaster" Relationship="HMModel.FK_HM_Room_HM_RoomCategoryMaster" FromRole="HM_Room" ToRole="HM_RoomCategoryMaster" />
+  </EntityType>
+  <Association Name="FK_HM_Booking_HM_Room">
+    <End Type="HMModel.HM_Room" Role="HM_Room" Multiplicity="1" />
+    <End Type="HMModel.HM_Booking" Role="HM_Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HM_Room">
+        <PropertyRef Name="RoomId" />
+      </Principal>
+      <Dependent Role="HM_Booking">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HM_Room_HM_Hotel">
+    <End Type="HMModel.HM_Hotel" Role="HM_Hotel" Multiplicity="1" />
+    <End Type="HMModel.HM_Room" Role="HM_Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HM_Hotel">
+        <PropertyRef Name="HotelId" />
+      </Principal>
+      <Dependent Role="HM_Room">
+        <PropertyRef Name="HotelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HM_Room_HM_RoomCategoryMaster">
+    <End Type="HMModel.HM_RoomCategoryMaster" Role="HM_RoomCategoryMaster" Multiplicity="1" />
+    <End Type="HMModel.HM_Room" Role="HM_Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HM_RoomCategoryMaster">
+        <PropertyRef Name="RoomCategoryId" />
+      </Principal>
+      <Dependent Role="HM_Room">
+        <PropertyRef Name="RoomCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

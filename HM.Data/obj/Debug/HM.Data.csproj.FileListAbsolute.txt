@@ -1,0 +1,17 @@
+G:\Company-Work\HM\HM.Data\bin\Debug\HM.Data.dll.config
+G:\Company-Work\HM\HM.Data\bin\Debug\HM.Data.dll
+G:\Company-Work\HM\HM.Data\bin\Debug\HM.Data.pdb
+G:\Company-Work\HM\HM.Data\bin\Debug\EntityFramework.dll
+G:\Company-Work\HM\HM.Data\bin\Debug\EntityFramework.SqlServer.dll
+G:\Company-Work\HM\HM.Data\bin\Debug\EntityFramework.xml
+G:\Company-Work\HM\HM.Data\bin\Debug\EntityFramework.SqlServer.xml
+G:\Company-Work\HM\HM.Data\obj\Debug\HM.Data.csprojAssemblyReference.cache
+G:\Company-Work\HM\HM.Data\obj\Debug\HM.Data.csproj.CoreCompileInputs.cache
+G:\Company-Work\HM\HM.Data\obj\Debug\HM.Data.csproj.CopyComplete
+G:\Company-Work\HM\HM.Data\obj\Debug\HM.Data.dll
+G:\Company-Work\HM\HM.Data\obj\Debug\HM.Data.pdb
+G:\Company-Work\HM\HM.Data\bin\Debug\AutoMapper.dll
+G:\Company-Work\HM\HM.Data\bin\Debug\HM.BusinessEntites.dll
+G:\Company-Work\HM\HM.Data\bin\Debug\HM.BusinessEntites.pdb
+G:\Company-Work\HM\HM.Data\bin\Debug\AutoMapper.pdb
+G:\Company-Work\HM\HM.Data\bin\Debug\AutoMapper.xml

@@ -1,0 +1,6 @@
+G:\Company-Work\HM\HM.BusinessEntites\bin\Debug\HM.BusinessEntites.dll
+G:\Company-Work\HM\HM.BusinessEntites\bin\Debug\HM.BusinessEntites.pdb
+G:\Company-Work\HM\HM.BusinessEntites\obj\Debug\HM.BusinessEntites.csprojAssemblyReference.cache
+G:\Company-Work\HM\HM.BusinessEntites\obj\Debug\HM.BusinessEntites.csproj.CoreCompileInputs.cache
+G:\Company-Work\HM\HM.BusinessEntites\obj\Debug\HM.BusinessEntites.dll
+G:\Company-Work\HM\HM.BusinessEntites\obj\Debug\HM.BusinessEntites.pdb
